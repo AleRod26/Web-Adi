@@ -1,0 +1,222 @@
+╔════════════════════════════════════════════════════════════════╗
+║                   PRINTVERSE 3D - CÓMO USAR                    ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────┐
+│  🚀 INICIO RÁPIDO (30 SEGUNDOS)                                │
+└────────────────────────────────────────────────────────────────┘
+
+1. Abre el archivo "index.html" en tu navegador
+   (Doble click o click derecho → Abrir con → Chrome/Firefox)
+
+2. ¡Ya está funcionando! Explora la web
+
+3. Para acceder como administrador:
+   - Click en botón "Admin" (arriba derecha)
+   - Email: alefita9@gmail.com  o  www.adi2010@gmail.com
+   - Contraseña: 2naranjas
+   - Click "Iniciar Sesión"
+
+┌────────────────────────────────────────────────────────────────┐
+│  🔑 CREDENCIALES DE ACCESO                                     │
+└────────────────────────────────────────────────────────────────┘
+
+Usuario 1:
+   Email: alefita9@gmail.com
+   Contraseña: 2naranjas
+
+Usuario 2:
+   Email: www.adi2010@gmail.com
+   Contraseña: 2naranjas
+
+IMPORTANTE: 
+- Solo estos 2 correos pueden acceder al panel admin
+- Cada usuario solo puede editar sus propios productos
+- Los diseños 3D son privados para cada usuario
+
+┌────────────────────────────────────────────────────────────────┐
+│  📁 ESTRUCTURA DE ARCHIVOS                                     │
+└────────────────────────────────────────────────────────────────┘
+
+printverse3d/
+│
+├── index.html          → Página principal (¡ABRE ESTE!)
+├── README.md           → Documentación completa
+├── GUIA_RAPIDA.md     → Guía de inicio rápido
+├── SEGURIDAD.md       → Info de seguridad
+├── RESUMEN.md         → Resumen del proyecto
+├── COMO_USAR.txt      → Este archivo
+│
+├── css/
+│   └── style.css      → Todos los estilos
+│
+└── js/
+    ├── auth.js        → Sistema de login
+    ├── products.js    → Gestión de productos
+    ├── cart.js        → Carrito y pedidos
+    ├── favorites.js   → Favoritos
+    ├── calculator.js  → Calculadora
+    ├── viewer3d.js    → Visualizador 3D
+    └── main.js        → Coordinador principal
+
+┌────────────────────────────────────────────────────────────────┐
+│  ✨ FUNCIONALIDADES PRINCIPALES                                │
+└────────────────────────────────────────────────────────────────┘
+
+PARA CLIENTES (sin login):
+✓ Ver catálogo completo de productos
+✓ Buscar productos (icono lupa)
+✓ Filtrar por categoría
+✓ Agregar al carrito
+✓ Ver modelos 3D interactivos
+✓ Calcular precios personalizados
+✓ Marcar favoritos (corazón)
+✓ Realizar pedidos
+
+PARA ADMINISTRADORES (con login):
+✓ TODO lo anterior +
+✓ Agregar nuevos productos
+✓ Editar/eliminar productos propios
+✓ Subir diseños 3D (URLs)
+✓ Descargar diseños propios
+✓ Ver pedidos de clientes
+✓ Gestionar estados de pedidos
+
+┌────────────────────────────────────────────────────────────────┐
+│  🎯 CÓMO AGREGAR TU PRIMER PRODUCTO                            │
+└────────────────────────────────────────────────────────────────┘
+
+1. Inicia sesión como admin (ver credenciales arriba)
+
+2. Se abrirá el Panel de Administración
+
+3. En la pestaña "Productos", click en "Nuevo Producto"
+
+4. Completa el formulario:
+   - Nombre: "Mi Primer Producto"
+   - Categoría: Selecciona una
+   - Precio: 29.99
+   - Descripción: Escribe una descripción
+   - URL Imagen: https://via.placeholder.com/400
+   - URL Modelo 3D: (opcional, déjalo vacío por ahora)
+
+5. Click "Guardar Producto"
+
+6. ¡Listo! Tu producto ya está en el catálogo
+
+┌────────────────────────────────────────────────────────────────┐
+│  🎨 PERSONALIZAR LA WEB                                        │
+└────────────────────────────────────────────────────────────────┘
+
+CAMBIAR COLORES:
+→ Abrir: css/style.css
+→ Buscar: :root { (línea 2)
+→ Modificar los valores de color
+
+CAMBIAR TEXTOS:
+→ Abrir: index.html
+→ Buscar el texto que quieres cambiar
+→ Reemplazar con tu texto
+
+CAMBIAR CONTRASEÑA:
+→ Abrir: js/auth.js
+→ Buscar: this.simpleHash('2naranjas')
+→ Cambiar '2naranjas' por tu contraseña
+
+AGREGAR MÁS ADMINS:
+→ Abrir: js/auth.js
+→ Buscar: this.whitelist
+→ Agregar más correos al array
+
+┌────────────────────────────────────────────────────────────────┐
+│  🌐 PUBLICAR EN INTERNET                                       │
+└────────────────────────────────────────────────────────────────┘
+
+OPCIÓN 1 - NETLIFY (Más fácil):
+1. Ir a netlify.com
+2. Arrastra la carpeta completa
+3. ¡Listo! Obtienes una URL tipo: tu-sitio.netlify.app
+
+OPCIÓN 2 - GITHUB PAGES:
+1. Sube el proyecto a GitHub
+2. Settings → Pages
+3. Source: main branch
+4. Tu sitio: tu-usuario.github.io/nombre-repo
+
+OPCIÓN 3 - VERCEL:
+1. Instalar: npm i -g vercel
+2. Ejecutar: vercel
+3. Seguir instrucciones
+
+┌────────────────────────────────────────────────────────────────┐
+│  ❓ PROBLEMAS COMUNES                                          │
+└────────────────────────────────────────────────────────────────┘
+
+❌ No veo productos
+   → Es normal en la primera carga
+   → Se crean automáticamente 6 productos de ejemplo
+   → Recarga la página (F5)
+
+❌ No puedo iniciar sesión
+   → Verifica que uses los correos exactos:
+     alefita9@gmail.com o www.adi2010@gmail.com
+   → Contraseña: 2naranjas (sin espacios)
+
+❌ No puedo editar un producto
+   → Solo puedes editar productos que TÚ creaste
+   → Los productos de ejemplo están asignados a cada admin
+
+❌ El visor 3D no funciona
+   → Necesitas conexión a internet (carga Three.js por CDN)
+   → Verifica que el producto tenga una URL de modelo 3D
+
+❌ Los estilos no se ven bien
+   → Verifica que el archivo css/style.css existe
+   → Asegura que index.html esté en la raíz
+
+┌────────────────────────────────────────────────────────────────┐
+│  📚 MÁS INFORMACIÓN                                            │
+└────────────────────────────────────────────────────────────────┘
+
+→ Documentación completa: README.md
+→ Guía rápida: GUIA_RAPIDA.md
+→ Seguridad: SEGURIDAD.md
+→ Resumen técnico: RESUMEN.md
+
+┌────────────────────────────────────────────────────────────────┐
+│  💡 CONSEJOS                                                    │
+└────────────────────────────────────────────────────────────────┘
+
+✓ Usa Chrome o Firefox para mejor experiencia
+✓ Los datos se guardan en tu navegador (localStorage)
+✓ No uses modo incógnito (se borrarán los datos)
+✓ Para producción real, implementa un backend
+✓ Lee SEGURIDAD.md antes de desplegar con datos reales
+
+┌────────────────────────────────────────────────────────────────┐
+│  🎉 ¡DISFRUTA DE TU TIENDA!                                    │
+└────────────────────────────────────────────────────────────────┘
+
+PrintVerse 3D está 100% funcional y listo para usar.
+
+Características incluidas:
+→ Sistema de autenticación seguro
+→ Panel de administración completo
+→ Catálogo de productos con filtros
+→ Carrito de compras
+→ Sistema de pedidos
+→ Favoritos
+→ Búsqueda en tiempo real
+→ Calculadora de precios
+→ Visualizador 3D
+→ Diseño moderno y responsive
+
+¡Todo listo para vender tus impresiones 3D!
+
+═══════════════════════════════════════════════════════════════
+
+              Hecho con ❤️ por PrintVerse 3D Team
+                   
+                    ¡Que tengas éxito! 🚀
+
+═══════════════════════════════════════════════════════════════

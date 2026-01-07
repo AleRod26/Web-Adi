@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DWordAdi - Tienda de Impresiones 3D</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>3D<span class="highlight">WordAdi</span></span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Inicio</a></li>
+                <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+                <li><a href="#galeria" class="nav-link">Galería</a></li>
+                <li><a href="#calculadora" class="nav-link">Calculadora</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn-icon" id="searchBtn" title="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="btn-icon" id="favoritesBtn" title="Favoritos">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="favBadge">0</span>
+                </button>
+                <button class="btn-icon" id="cartBtn" title="Carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartBadge">0</span>
+                </button>
+                <button class="btn-primary" id="loginBtn">
+                    <i class="fas fa-user"></i> Iniciar Sesión
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content modal-search">
+            <button class="modal-close" id="searchClose">&times;</button>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar productos, categorías..." autocomplete="off">
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+        </div>
+        
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transforma tus Ideas en 
+                    <span class="gradient-text">Realidad 3D</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Impresiones 3D de alta calidad con diseños personalizados. 
+                    Desde prototipos hasta arte decorativo, lo hacemos realidad.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#catalogo" class="btn-hero btn-hero-primary">
+                        <i class="fas fa-store"></i> Ver Catálogo
+                    </a>
+                    <a href="#calculadora" class="btn-hero btn-hero-secondary">
+                        <i class="fas fa-calculator"></i> Calcular Precio
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">Proyectos Completados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="150">0</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Diseños Disponibles</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-3d">
+                <div class="model-viewer-placeholder">
+                    <i class="fas fa-cube fa-5x"></i>
+                    <p>Visualizador 3D Interactivo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Explora por Categoría</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="decoracion">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Decoración</h3>
+                    <p>Jarrones, lámparas, arte</p>
+                </div>
+                
+                <div class="category-card" data-category="juguetes">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Juguetes</h3>
+                    <p>Figuras, juegos educativos</p>
+                </div>
+                
+                <div class="category-card" data-category="herramientas">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Herramientas</h3>
+                    <p>Soportes, organizadores</p>
+                </div>
+                
+                <div class="category-card" data-category="miniaturas">
+                    <div class="category-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Miniaturas</h3>
+                    <p>Coleccionables, gaming</p>
+                </div>
+                
+                <div class="category-card" data-category="prototipos">
+                    <div class="category-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Prototipos</h3>
+                    <p>Piezas industriales</p>
+                </div>
+                
+                <div class="category-card" data-category="personalizado">
+                    <div class="category-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Personalizado</h3>
+                    <p>Tu diseño único</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <section class="catalog" id="catalogo">
+        <div class="container">
+            <div class="catalog-header">
+                <h2 class="section-title">Catálogo de Productos</h2>
+                
+                <div class="catalog-filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">Todas las categorías</option>
+                        <option value="decoracion">Decoración</option>
+                        <option value="juguetes">Juguetes</option>
+                        <option value="herramientas">Herramientas</option>
+                        <option value="miniaturas">Miniaturas</option>
+                        <option value="prototipos">Prototipos</option>
+                        <option value="personalizado">Personalizado</option>
+                    </select>
+                    
+                    <select id="sortFilter" class="filter-select">
+                        <option value="newest">Más recientes</option>
+                        <option value="price-low">Precio: Menor a Mayor</option>
+                        <option value="price-high">Precio: Mayor a Menor</option>
+                        <option value="popular">Más populares</option>
+                    </select>
+                    
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se cargarán dinámicamente -->
+            </div>
+            
+            <div class="no-products" id="noProducts" style="display: none;">
+                <i class="fas fa-box-open fa-3x"></i>
+                <p>No se encontraron productos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Trabajos -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galería de Trabajos</h2>
+            <p class="section-subtitle">Descubre algunos de nuestros proyectos más destacados</p>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- La galería se cargará dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculadora de Precios -->
+    <section class="calculator" id="calculadora">
+        <div class="container">
+            <h2 class="section-title">Calculadora de Precios</h2>
+            <p class="section-subtitle">Calcula el precio estimado de tu impresión 3D</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="calcSize">Tamaño (cm³)</label>
+                        <input type="number" id="calcSize" min="1" max="1000" value="100" class="form-input">
+                        <input type="range" id="calcSizeRange" min="1" max="1000" value="100" class="form-range">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="calcMaterial">Material</label>
+                        <select id="calcMaterial" class="form-input">
+                            <option value="plastico" data-price="0.5">PLA - UYU 0.50/cm³</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="calcQuality">Calidad de Impresión</label>
+                        <select id="calcQuality" class="form-input">
+                            <option value="draft" data-mult="0.8">Borrador (0.3mm)</option>
+                            <option value="normal" data-mult="1.0" selected>Normal (0.2mm)</option>
+                            <option value="high" data-mult="1.3">Alta (0.1mm)</option>
+                            <option value="ultra" data-mult="1.6">Ultra (0.05mm)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="calcInfill">Relleno (%)</label>
+                        <input type="number" id="calcInfill" min="0" max="100" value="20" class="form-input">
+                        <input type="range" id="calcInfillRange" min="0" max="100" value="20" class="form-range">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="calcSupport"> Requiere soportes (+15%)
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="calcColor"> Color personalizado (+UYU 5)
+                        </label>
+                    </div>
+                    
+                    <button class="btn-calculate" id="calculateBtn">
+                        <i class="fas fa-calculator"></i> Calcular Precio
+                    </button>
+                </div>
+                
+                <div class="calculator-result">
+                    <div class="result-card">
+                        <h3>Estimación de Precio</h3>
+                        <div class="price-breakdown">
+                            <div class="breakdown-item">
+                                <span>Material:</span>
+                                <span id="priceMaterial">UYU 0.00</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Calidad:</span>
+                                <span id="priceQuality">UYU 0.00</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Extras:</span>
+                                <span id="priceExtras">UYU 0.00</span>
+                            </div>
+                            <div class="breakdown-total">
+                                <span>Total:</span>
+                                <span class="total-price" id="priceTotal">UYU 0.00</span>
+                            </div>
+                        </div>
+                        <button class="btn-quote" id="requestQuoteBtn">
+                            <i class="fas fa-paper-plane"></i> Solicitar Presupuesto
+                        </button>
+                    </div>
+                    
+                    <div class="result-info">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Esta es una estimación aproximada. El precio final puede variar según la complejidad del diseño.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">¿Tienes un Proyecto en Mente?</h2>
+            <p class="section-subtitle">Contáctanos y hagamos realidad tu idea</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>contacto@printverse3d.com</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Teléfono</h3>
+                        <p>+34 123 456 789</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Horario</h3>
+                        <p>Lun - Vie: 9:00 - 18:00</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Nombre</label>
+                            <input type="text" id="contactName" required class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" required class="form-input">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactSubject">Asunto</label>
+                        <input type="text" id="contactSubject" required class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMessage">Mensaje</label>
+                        <textarea id="contactMessage" rows="5" required class="form-input"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-cube"></i>
+                        <span>3DWordAdi<span class="highlight"></span></span>
+                    </div>
+                    <p>Transformando ideas en realidad a través de la impresión 3D de alta calidad.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#calculadora">Calculadora</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Materiales</h3>
+                    <ul>
+                        <li><a href="#">PLA</a></li>
+                        <li><a href="#">ABS</a></li>
+                        <li><a href="#">PETG</a></li>
+                        <li><a href="#">Resina</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir novedades</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" class="form-input">
+                        <button type="submit" class="btn-newsletter">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 3DWordAdi. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="loginClose">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-lock"></i>
+                <h2>Iniciar Sesion</h2>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="loginEmail">Correo Electrónico</label>
+                    <input type="email" id="loginEmail" required class="form-input" placeholder="correo@ejemplo.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" required class="form-input" placeholder="••••••••">
+                </div>
+                
+                <div class="form-error" id="loginError"></div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content modal-admin">
+            <button class="modal-close" id="adminClose">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-cog"></i>
+                <h2>Panel de Administración</h2>
+            </div>
+            
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="products">
+                    <i class="fas fa-box"></i> Productos
+                </button>
+                <button class="tab-btn" data-tab="designs">
+                    <i class="fas fa-cube"></i> Mis Diseños
+                </button>
+                <button class="tab-btn" data-tab="orders">
+                    <i class="fas fa-shopping-bag"></i> Pedidos
+                </button>
+            </div>
+            
+            <div class="admin-content">
+                <!-- Tab: Productos -->
+                <div class="tab-content active" id="tabProducts">
+                    <div class="tab-header">
+                        <h3>Gestión de Productos</h3>
+                        <button class="btn-primary" id="addProductBtn">
+                            <i class="fas fa-plus"></i> Nuevo Producto
+                        </button>
+                    </div>
+                    
+                    <div class="admin-table-container">
+                        <table class="admin-table" id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Creador</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Tab: Diseños -->
+                <div class="tab-content" id="tabDesigns">
+                    <div class="tab-header">
+                        <h3>Mis Diseños 3D</h3>
+                        <button class="btn-primary" id="uploadDesignBtn">
+                            <i class="fas fa-upload"></i> Subir Diseño
+                        </button>
+                    </div>
+                    
+                    <div class="designs-grid" id="designsGrid">
+                        <!-- Se llenará dinámicamente -->
+                    </div>
+                </div>
+                
+                <!-- Tab: Pedidos -->
+                <div class="tab-content" id="tabOrders">
+                    <h3>Pedidos Recibidos</h3>
+                    <div class="admin-table-container">
+                        <table class="admin-table" id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Productos</th>
+                                    <th>Total</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Form Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="productClose">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-box"></i>
+                <h2 id="productModalTitle">Nuevo Producto</h2>
+            </div>
+            
+            <form id="productForm" class="product-form">
+                <input type="hidden" id="productId">
+                
+                <div class="form-group">
+                    <label for="productName">Nombre del Producto</label>
+                    <input type="text" id="productName" required class="form-input">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoría</label>
+                        <select id="productCategory" required class="form-input">
+                            <option value="">Seleccionar...</option>
+                            <option value="decoracion">Decoración</option>
+                            <option value="juguetes">Juguetes</option>
+                            <option value="herramientas">Herramientas</option>
+                            <option value="miniaturas">Miniaturas</option>
+                            <option value="prototipos">Prototipos</option>
+                            <option value="personalizado">Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">Precio (UYU)</label>
+                        <input type="number" id="productPrice" required min="0" step="0.01" class="form-input">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDescription">Descripción</label>
+                    <textarea id="productDescription" required rows="4" class="form-input"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productImage">URL de Imagen</label>
+                    <input type="url" id="productImage" class="form-input" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                
+                <div class="form-group">
+                    <label for="productModel">URL de Modelo 3D (STL/OBJ)</label>
+                    <input type="url" id="productModel" class="form-input" placeholder="https://ejemplo.com/modelo.stl">
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-save"></i> Guardar Producto
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productDetailModal">
+        <div class="modal-content modal-product">
+            <button class="modal-close" id="productDetailClose">&times;</button>
+            <div class="product-detail">
+                <div class="product-detail-gallery">
+                    <img id="detailImage" src="" alt="">
+                    <div id="detail3DViewer" class="detail-3d-viewer">
+                        <div class="viewer-placeholder">
+                            <i class="fas fa-cube fa-3x"></i>
+                            <p>Vista 3D Interactiva</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-detail-info">
+                    <h2 id="detailName"></h2>
+                    <div class="detail-category" id="detailCategory"></div>
+                    <div class="detail-price" id="detailPrice"></div>
+                    <p class="detail-description" id="detailDescription"></p>
+                    
+                    <div class="detail-actions">
+                        <button class="btn-add-cart" id="addToCartBtn">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
+                        <button class="btn-icon-large" id="addToFavBtn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="detail-specs">
+                        <h3>Especificaciones</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Material: PLA de alta calidad</li>
+                            <li><i class="fas fa-check"></i> Resolución: 0.1mm</li>
+                            <li><i class="fas fa-check"></i> Tiempo de entrega: 3-5 días</li>
+                            <li><i class="fas fa-check"></i> Garantía de calidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <button class="modal-close" id="cartClose">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Carrito de Compras</h2>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Se llenará dinámicamente -->
+            </div>
+            
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-cart fa-3x"></i>
+                <p>Tu carrito está vacío</p>
+            </div>
+            
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-amount" id="cartTotal">UYU 0.00</span>
+                </div>
+                <button class="btn-checkout" id="checkoutBtn">
+                    <i class="fas fa-credit-card"></i> Realizar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <button class="modal-close" id="checkoutClose">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-shopping-bag"></i>
+                <h2>Finalizar Pedido</h2>
+            </div>
+            
+            <form id="checkoutForm" class="checkout-form">
+                <h3>Información de Contacto</h3>
+                
+                <div class="form-group">
+                    <label for="checkoutName">Nombre Completo</label>
+                    <input type="text" id="checkoutName" required class="form-input">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkoutEmail">Email</label>
+                        <input type="email" id="checkoutEmail" required class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="checkoutPhone">Teléfono</label>
+                        <input type="tel" id="checkoutPhone" required class="form-input">
+                    </div>
+                </div>
+                
+                <h3>Dirección de Envío</h3>
+                
+                <div class="form-group">
+                    <label for="checkoutAddress">Dirección</label>
+                    <input type="text" id="checkoutAddress" required class="form-input">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkoutCity">Ciudad</label>
+                        <input type="text" id="checkoutCity" required class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="checkoutPostal">Código Postal</label>
+                        <input type="text" id="checkoutPostal" required class="form-input">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="checkoutNotes">Notas Adicionales</label>
+                    <textarea id="checkoutNotes" rows="3" class="form-input"></textarea>
+                </div>
+                
+                <div class="checkout-summary">
+                    <h3>Resumen del Pedido</h3>
+                    <div id="checkoutItems"></div>
+                    <div class="checkout-total">
+                        <span>Total a Pagar:</span>
+                        <span class="total-amount" id="checkoutTotal">UYU 0.00</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-check"></i> Confirmar Pedido
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Favorites Modal -->
+    <div class="modal" id="favoritesModal">
+        <div class="modal-content">
+            <button class="modal-close" id="favoritesClose">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-heart"></i>
+                <h2>Mis Favoritos</h2>
+            </div>
+            
+            <div class="favorites-grid" id="favoritesGrid">
+                <!-- Se llenará dinámicamente -->
+            </div>
+            
+            <div class="cart-empty" id="favoritesEmpty">
+                <i class="fas fa-heart fa-3x"></i>
+                <p>No tienes favoritos guardados</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/viewer3d.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
